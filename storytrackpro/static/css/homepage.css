@@ -12,6 +12,45 @@ html, body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    background-color: #244855;
+}
+
+.navbar, .footer {
+    background-color: #244855;
+    color: #90aead !important;
+}
+
+.text-custom, .nav-link {
+    color: #90aead !important;
+}
+
+.homepage-header {
+    margin-top: 10%;
+    height: 40vw;
+    background-color: #244855;
+    color: #90aead;
+}
+
+.homepage-header p {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.btn-home {
+    color: #fbe9d0;
+    background-color: #874f41;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.btn-home:hover {
+    color: #fbe9d0;
+    background-color: #AC6553;
+    transform: translateY(-4px); /* Lifts the card slightly on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .container {
@@ -32,4 +71,40 @@ html, body {
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+/* Rounded card styling */
+.rounded-card {
+    border-radius: 15px; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+    overflow: hidden;
+    border: none;
+}
+
+.rounded-card:hover {
+    transform: translateY(-10px); /* Lifts the card slightly on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+/* Add some padding to the card's body */
+.card-body {
+    justify-content: center;
+    padding: 2rem;
+    color: #fbe9d0;
+    background-color: #874f41;
+}
+
+/* Add spacing for the text inside the card */
+.card-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    font-size: 1.1rem;
+}
+
+/* Shadow effect to make the card stand out */
+.shadow-lg {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
