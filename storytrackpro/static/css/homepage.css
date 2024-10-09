@@ -30,6 +30,14 @@ html, body {
     transition: all 0.3s ease;
 }
 
+.nav-link:active, .nav-link:focus, .nav-link.active {
+    color: white;
+}
+
+.navbar-brand:active, .navbar-brand:focus, .navbar-brand:active{
+    color: #90aead;
+}
+
 .homepage-header {
     margin-top: 10%;
     height: 40vw;
