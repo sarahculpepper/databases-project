@@ -21,7 +21,13 @@ html, body {
 }
 
 .text-custom, .nav-link {
-    color: #90aead !important;
+    color: #90aead;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover, .navbar-brand:hover {
+    color: white;
+    transition: all 0.3s ease;
 }
 
 .homepage-header {
