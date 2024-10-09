@@ -6,3 +6,58 @@ The system will operate in a newsroom environment where multiple reporters work 
 ## Contributors
 Sarah Culpepper C00302257 \
 Scott Whitman C00453332
+
+## Create Python Virtual Environment
+
+```bash
+virtualenv --python=/usr/bin/python3 .venv  # for UNIX and MacOS bash/zsh
+```
+
+```bash
+python -m virtualenv .venv                  # for Windows git bash and Windows CMD
+```
+
+## Activate Python Virtual Environment
+
+```bash
+source .venv/bin/activate                   # for UNIX and MacOS bash/zsh
+```
+
+```bash
+source .venv/Scripts/activate               # for Windows git bash
+```
+
+```cmd
+.venv\Scripts\activate.bat                  # for Windows CMD
+```
+
+For the following steps and for development, keep the virtual environment activated all the time.
+
+## Install Python Requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+## Start Local mysql Database
+
+```bash
+sudo service mysql start           # to start local mysql database
+```
+
+```bash
+sudo service mysql stop            # to stop local mysql database
+```
+
+```bash
+brew services start mysql          # UNIX start local mysql database
+```
+
+```bash
+brew services stop mysql           # UNIX start local mysql database
+```
+## Run the Django Web Server
+
+```bash
+python manage.py runserver
+```

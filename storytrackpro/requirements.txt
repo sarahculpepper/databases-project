@@ -1,0 +1,4 @@
+django
+pkg-config
+mysqlclient
+djlint
