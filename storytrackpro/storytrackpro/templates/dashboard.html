@@ -10,14 +10,160 @@
     <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
 </head>
 <body>
-    <div class="container">
+    <div class="container dashboard">
         {% include "navbar.html" %}
-        <header class="homepage-header text-center py-5">
-            <div class="container mt-5">
-                <h1>Dashboard</h1>
-                <p class="lead mt-5">This is the dashboard</p>
-            </div>
-        </header>
+        <div class="container mt-5">
+            <h1 class="text-center text-custom">Dashboard</h1>
+            
+            <!-- Section 1: All Stories -->
+            <section class="m-5">
+                <h2>All Stories</h2>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Story Title</th>
+                            <th>Reporter</th>
+                            <th>Status</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Breaking News: City Council Decision</td>
+                            <td>John Doe</td>
+                            <td>Researching</td>
+                            <td>2024-10-15</td>
+                        </tr>
+                        <tr>
+                            <td>Feature: Local Heroes</td>
+                            <td>Jane Smith</td>
+                            <td>Writing</td>
+                            <td>2024-10-18</td>
+                        </tr>
+                        <tr>
+                            <td>Investigative Report: Water Supply Issues</td>
+                            <td>Chris Johnson</td>
+                            <td>Awaiting Review</td>
+                            <td>2024-10-22</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+    
+            <!-- Section 2: Update Story Status -->
+            <section class="m-5">
+                <h2>Update Story Status</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="story-title" class="form-label">Story Title</label>
+                        <select class="form-select" id="story-title">
+                            <option selected>Choose a story</option>
+                            <option>Breaking News: City Council Decision</option>
+                            <option>Feature: Local Heroes</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status-update" class="form-label">New Status</label>
+                        <select class="form-select" id="status-update">
+                            <option selected>Choose status</option>
+                            <option>Researching</option>
+                            <option>Interviewing</option>
+                            <option>Writing</option>
+                            <option>Awaiting Review</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-home">Update Status</button>
+                </form>
+            </section>
+    
+            <!-- Section 3: Request Editorial Review -->
+            <section class="m-5">
+                <h2>Request Editorial Review</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="review-story-title" class="form-label">Story Title</label>
+                        <select class="form-select" id="review-story-title">
+                            <option selected>Choose a story</option>
+                            <option>Breaking News: City Council Decision</option>
+                            <option>Feature: Local Heroes</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-home">Request Review</button>
+                </form>
+            </section>
+    
+            <!-- Section 4: Monitor Story Progress -->
+            <section class="m-5">
+                <h2>Monitor Story Progress</h2>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Story Title</th>
+                            <th>Reporter</th>
+                            <th>Status</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Breaking News: City Council Decision</td>
+                            <td>John Doe</td>
+                            <td>Researching</td>
+                            <td>2024-10-15</td>
+                        </tr>
+                        <tr>
+                            <td>Feature: Local Heroes</td>
+                            <td>Jane Smith</td>
+                            <td>Writing</td>
+                            <td>2024-10-18</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+    
+            <!-- Section 5: Assign Stories to Reporters -->
+            <section class="m-5">
+                <h2>Assign Stories to Reporters</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="story-to-assign" class="form-label">Story Title</label>
+                        <select class="form-select" id="story-to-assign">
+                            <option selected>Choose a story</option>
+                            <option>Breaking News: City Council Decision</option>
+                            <option>Feature: Local Heroes</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reporter-assign" class="form-label">Assign to Reporter</label>
+                        <select class="form-select" id="reporter-assign">
+                            <option selected>Choose a reporter</option>
+                            <option>John Doe</option>
+                            <option>Jane Smith</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-home">Assign Story</button>
+                </form>
+            </section>
+    
+            <!-- Section 6: View Editorial Feedback -->
+            <section class="m-5">
+                <h2>Editorial Feedback</h2>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Feature: Local Heroes</h5>
+                        <p class="card-text">Feedback: Please clarify the section about the volunteer efforts. Add more sources to support your claims.</p>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Breaking News: City Council Decision</h5>
+                        <p class="card-text">Feedback: This is looking great! Please finalize quotes from council members and submit for review by EOD.</p>
+                    </div>
+                </div>
+            </section>
+    
+        </div>
+
 
         <footer class="footer text-center pt-3">
             <p>&copy; 2024 StoryTrack Pro. All Rights Reserved.</p>

@@ -74,6 +74,10 @@ html, body {
     margin: 0;
 }
 
+.dashboard h2, label{
+    color: #90aead;
+}
+
 .footer {
     margin-top: auto;
     width: 100vw !important;
