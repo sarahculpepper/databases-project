@@ -126,3 +126,35 @@ html, body {
 .shadow-lg {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+.custom-form {
+    width: 50%;
+}
+
+.table-custom {
+    background-color: #fbe9d0;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-custom th {
+    color: black; /* Header text color */
+    padding: 10px 10px; /* Padding for header */
+    border-bottom: 2px solid black; /* Header border */
+    text-align: left; /* Align text to the left */
+}
+
+/* Table body styling */
+.table-custom td {
+    padding: 10px 10px; /* Padding for table cells */
+    border-bottom: 1px solid black; /* Row bottom border */
+}
+
+/* Optional hover effect for rows */
+.table-custom tr:hover {
+    background-color: #f1f1f1; /* Hover background color */
+}
+
+.table-custom thead tr:hover {
+    background-color: #fbe9d0;
+}

@@ -10,14 +10,53 @@
     <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
 </head>
 <body>
-    <div class="container">
+    <div class="container dashboard">
         {% include "navbar.html" %}
-        <header class="homepage-header text-center py-5">
-            <div class="container mt-5">
-                <h1>Story Status</h1>
-                <p class="lead mt-5">This is the status of the stories</p>
-            </div>
-        </header>
+        <div class="container mt-5">
+            <!-- Update Story Status -->
+            <section class="m-5">
+                <h2>Update Story Status</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="story-title" class="form-label">Story Title</label>
+                        <select class="form-select" id="story-title">
+                            <option selected>Choose a story</option>
+                            <option>Breaking News: City Council Decision</option>
+                            <option>Feature: Local Heroes</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status-update" class="form-label">New Status</label>
+                        <select class="form-select" id="status-update">
+                            <option selected>Choose status</option>
+                            <option>Researching</option>
+                            <option>Interviewing</option>
+                            <option>Writing</option>
+                            <option>Awaiting Review</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-home">Update Status</button>
+                </form>
+            </section>
+            
+            <!-- View Editorial Feedback -->
+            <section class="m-5">
+                <h2>Editorial Feedback</h2>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Feature: Local Heroes</h5>
+                        <p class="card-text">Feedback: Please clarify the section about the volunteer efforts. Add more sources to support your claims.</p>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Breaking News: City Council Decision</h5>
+                        <p class="card-text">Feedback: This is looking great! Please finalize quotes from council members and submit for review by EOD.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 
         <footer class="footer text-center pt-3">
             <p>&copy; 2024 StoryTrack Pro. All Rights Reserved.</p>
