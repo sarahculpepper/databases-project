@@ -59,5 +59,9 @@ brew services stop mysql           # UNIX start local mysql database
 ## Run the Django Web Server
 
 ```bash
-python manage.py runserver
+python3 manage.py runserver        # UNIX start web server 
+```
+
+```bash
+python manage.py runserver         # start web server 
 ```
