@@ -65,3 +65,13 @@ python3 manage.py runserver        # UNIX start web server
 ```bash
 python manage.py runserver         # start web server 
 ```
+
+## Create Super User
+
+```bash
+python3 manage.py createsuperuser  # UNIX start web server 
+```
+
+```bash
+python manage.py createsuperuser   # create super user
+```
