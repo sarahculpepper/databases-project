@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .sql_queries import *
 
 def homepage_view(request):
     template_name = 'homepage.html'
@@ -6,7 +7,9 @@ def homepage_view(request):
 
 def dashboard_view(request):
     template_name = 'dashboard.html'
-    return render(request, template_name)
+    query = "SELECT * FROM STORY;"
+    stories = execute_query(query)
+    return render(request, template_name, {'stories': stories})
 
 def assignments_view(request):
     template_name = 'assignments.html'

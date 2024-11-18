@@ -1,4 +1,5 @@
 django
-pkg-config
 mysqlclient
+mysql-connector-python
 djlint
+python-dotenv

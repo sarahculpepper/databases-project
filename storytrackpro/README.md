@@ -10,7 +10,7 @@ Scott Whitman C00453332
 ## Create Python Virtual Environment
 
 ```bash
-virtualenv --python=/usr/bin/python3 .venv  # for UNIX and MacOS bash/zsh
+virtualenv -p /usr/local/bin/python3.13 .venv   # for UNIX and MacOS bash/zsh
 ```
 
 ```bash
@@ -36,6 +36,10 @@ For the following steps and for development, keep the virtual environment activa
 ## Install Python Requirements
 
 ```bash
+pip3.13 install -r requirements.txt            # UNIX
+```
+
+```bash
 pip install -r requirements.txt
 ```
 
@@ -55,6 +59,25 @@ brew services start mysql          # UNIX start local mysql database
 
 ```bash
 brew services stop mysql           # UNIX start local mysql database
+```
+## Configure Local Database
+
+```bash
+mysql -u root -p                   # login to database
+```
+
+```bash
+CREATE DATABASE storytrack_pro;    # Create database
+```
+
+```bash
+CREATE USER 'your_username'@'localhost' 
+IDENTIFIED BY 'your_password';     # create local user
+```
+
+```bash
+GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';
+FLUSH PRIVILEGES;
 ```
 ## Run the Django Web Server
 
