@@ -1,6 +1,35 @@
 from django.shortcuts import redirect, render
 from .sql_queries import *
 
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+
+def register_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        confirm_password = request.POST.get("confirm_password")
+
+        # Check if passwords match
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match.")
+            return redirect("register")
+
+        # Create the user
+        try:
+            user = User.objects.create_user(username=username, email=email, password=password)
+            user.save()
+            messages.success(request, "Account created successfully! Please log in.")
+            return redirect("login")
+        except Exception as e:
+            messages.error(request, f"Error: {e}")
+            return redirect("register")
+
+    return render(request, "register.html")
+
 def homepage_view(request):
     template_name = 'homepage.html'
     return render(request, template_name)

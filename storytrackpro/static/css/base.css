@@ -20,6 +20,37 @@ html, body {
     color: #90aead !important;
 }
 
+.navbar-brand {
+    font-size: 30px;
+}
+
+.nav-item {
+    margin-left: auto;
+    width: fit-content;
+    margin-top: -3px;
+    margin-right: 25px;
+}
+
+.navbar-nav .dropdown-menu {
+    margin-left: auto;
+    width: fit-content;
+    margin-top: -3px;
+    margin-right: 25px;
+}
+
+.navbar {
+    padding-top: 15px;
+    font-size: 1.1em;
+}
+
+.navbar_wrapper{
+    margin-top: 10px;
+}
+
+.navbar-collapse{
+    text-align: right;
+}
+
 .text-custom, .nav-link {
     color: #90aead;
     transition: all 0.3s ease;
@@ -70,9 +101,9 @@ html, body {
 .container {
     flex: 1;
     min-width: 100vw !important;
-    height: 82vh;
+    min-height: 80vh;
     padding: 0;
-    margin: 0;
+    margin-top: 60px;
 }
 
 .dashboard h2, label{
@@ -85,8 +116,6 @@ html, body {
     height: 50px;
     line-height: 30px;
     text-align: center;
-    margin: 0;
-    padding: 0;
     bottom: 0 !important;
     left: 0;
     right: 0;
