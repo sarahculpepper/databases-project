@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryTrack Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <div class="container dashboard">
+        {% include "navbar.html" %}
+            <div class="container mt-5">
+                {% include "messages.html" %}
+                <div class="custom-card">
+                    {% for story in stories %}
+        				<form method="post"">
+                            {% csrf_token %}
+                            <div>
+               					<textarea
+              						class="title-textarea"
+              						name="title"
+               					>{{story.4}}</textarea>
+                            </div>
+                            <div>
+                                <textarea
+              						class="body-textarea"
+              						name="storybody"
+               					>{{story.10}}</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-home" name="update_story">Update Story</button>
+        				</form>
+                    {% endfor %}
+                </div>
+            </div>
+        <footer class="footer text-center pt-3">
+            <p>&copy; 2024 StoryTrack Pro. All Rights Reserved.</p>
+        </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

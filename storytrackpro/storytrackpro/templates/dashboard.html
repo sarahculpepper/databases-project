@@ -13,8 +13,8 @@
     <div class="container dashboard">
         {% include "navbar.html" %}
         <div class="container mt-5">
+            {% include "messages.html" %}
             <h1 class="text-center text-custom">Dashboard</h1>
-            
             <!-- Section 1: All Stories -->
             <section class="m-5">
                 <h2>All Stories</h2>
@@ -32,10 +32,10 @@
                     </thead>
                     <tbody>
                         {% for story in stories %}
-                        <tr>
+                        <tr onclick="window.location.href='{% url 'story' story.0 %}'" style="cursor: pointer;">
                             <td>{{ story.4 }}</td> <!-- Headline -->
-                            <td>{{ story.1 }}</td> <!-- Reporter -->
-                            <td>{{ story.2 }}</td> <!-- Editor -->
+                            <td>{{ story.1 }}</td>
+                            <td>{{ story.2 }}</td>
                             <td>{{ story.5 }}</td> <!-- Status -->
                             <td>{{ story.9 }}</td> <!-- Category -->
                             <td>{{ story.6 }}</td> <!-- Priority -->
@@ -49,45 +49,54 @@
                     </tbody>
                 </table>
             </section>
-    
-            <!-- Section 5: Request Editorial Review & Assign Stories to Reporters -->
+
+            <!-- Section: Request Editorial Review & Assign Stories to Reporters -->
             <section class="m-5">
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-6 mx-auto">
                         <h2>Request Editorial Review</h2>
-                        <form>
+                        <form method="post">
+                            {% csrf_token %}
                             <div class="mb-3 custom-form">
                                 <label for="review-story-title" class="form-label">Story Title</label>
-                                <select class="form-select" id="review-story-title">
+                                <select class="form-select" id="review-story-title" name="story_id">
                                     <option selected>Choose a story</option>
                                     {% for story in stories %}
-                                    <option>{{ story.4 }}</option>
+                                    <option name="story_id" value="{{ story.0 }}">{{ story.4 }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-home">Request Review</button>
+                            <div class="mb-3 custom-form">
+                                <label for="editor-assign" class="form-label">Request Review from Editor</label>
+                                <select class="form-select" id="editor_id" name="editor_id">
+                                    <option selected>Choose an Editor</option>
+                                    {% for editor in editors %}
+                                    <option name="editor_id" value="{{ editor.0 }}">{{ editor.1 }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-home" name="request_review">Request Review</button>
                         </form>
                     </div>
                     <div class="col-md-6 mx-auto">
                         <h2>Assign Stories to Reporters</h2>
                         <form method="post">
                             {% csrf_token %}
-                            <input type="hidden" name="story_id" value="{{ story.0 }}"> <!-- StoryID -->
                             <div class="mb-3 custom-form">
                                 <label for="story-to-assign" class="form-label">Story Title</label>
-                                <select class="form-select" id="story-to-assign">
+                                <select class="form-select" id="story-to-assign" name="story_id">
                                     <option selected>Choose a story</option>
                                     {% for story in stories %}
-                                    <option>{{ story.4 }}</option>
+                                    <option name="story_id" value="{{ story.0 }}">{{ story.4 }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                             <div class="mb-3 custom-form">
                                 <label for="reporter-assign" class="form-label">Assign to Reporter</label>
-                                <select class="form-select" id="reporter_id">
+                                <select class="form-select" id="reporter_id" name="reporter_id">
                                     <option selected>Choose a Reporter</option>
                                     {% for reporter in reporters %}
-                                    <option value="{{ reporter.0 }}">{{ reporter.1 }}</option>
+                                    <option name="reporter_id" value="{{ reporter.0 }}">{{ reporter.1 }}</option>
                                     {% endfor %}
                                 </select>
                             </div>

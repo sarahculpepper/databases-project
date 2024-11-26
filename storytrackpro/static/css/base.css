@@ -1,10 +1,11 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     font-family: "Outfit", sans-serif;
     height: 100%;
     max-width: 100% !important;
@@ -15,7 +16,8 @@ html, body {
     background-color: #244855;
 }
 
-.navbar, .footer {
+.navbar,
+.footer {
     background-color: #244855;
     color: #90aead !important;
 }
@@ -43,29 +45,35 @@ html, body {
     font-size: 1.1em;
 }
 
-.navbar_wrapper{
+.navbar_wrapper {
     margin-top: 10px;
 }
 
-.navbar-collapse{
+.navbar-collapse {
     text-align: right;
 }
 
-.text-custom, .nav-link {
+.text-custom,
+.nav-link {
     color: #90aead;
     transition: all 0.3s ease;
 }
 
-.nav-link:hover, .navbar-brand:hover {
+.nav-link:hover,
+.navbar-brand:hover {
     color: white;
     transition: all 0.3s ease;
 }
 
-.nav-link:active, .nav-link:focus, .nav-link.active {
+.nav-link:active,
+.nav-link:focus,
+.nav-link.active {
     color: white;
 }
 
-.navbar-brand:active, .navbar-brand:focus, .navbar-brand:active{
+.navbar-brand:active,
+.navbar-brand:focus,
+.navbar-brand:active {
     color: #90aead;
 }
 
@@ -94,7 +102,8 @@ html, body {
 .btn-home:hover {
     color: #fbe9d0;
     background-color: #AC6553;
-    transform: translateY(-4px); /* Lifts the card slightly on hover */
+    transform: translateY(-4px);
+    /* Lifts the card slightly on hover */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -106,7 +115,8 @@ html, body {
     margin-top: 60px;
 }
 
-.dashboard h2, label{
+.dashboard h2,
+label {
     color: #90aead;
 }
 
@@ -123,15 +133,19 @@ html, body {
 
 /* Rounded card styling */
 .rounded-card {
-    border-radius: 15px; /* Rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+    border-radius: 15px;
+    /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth hover transition */
     overflow: hidden;
     border: none;
 }
 
 .rounded-card:hover {
-    transform: translateY(-10px); /* Lifts the card slightly on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+    transform: translateY(-10px);
+    /* Lifts the card slightly on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* Increase shadow on hover */
 }
 
 /* Add some padding to the card's body */
@@ -168,23 +182,71 @@ html, body {
 }
 
 .table-custom th {
-    color: black; /* Header text color */
-    padding: 10px 10px; /* Padding for header */
-    border-bottom: 2px solid black; /* Header border */
-    text-align: left; /* Align text to the left */
+    color: black;
+    /* Header text color */
+    padding: 10px 10px;
+    /* Padding for header */
+    border-bottom: 2px solid black;
+    /* Header border */
+    text-align: left;
+    /* Align text to the left */
 }
 
 /* Table body styling */
 .table-custom td {
-    padding: 10px 10px; /* Padding for table cells */
-    border-bottom: 1px solid black; /* Row bottom border */
+    padding: 10px 10px;
+    /* Padding for table cells */
+    border-bottom: 1px solid black;
+    /* Row bottom border */
 }
 
 /* Optional hover effect for rows */
 .table-custom tr:hover {
-    background-color: #f1f1f1; /* Hover background color */
+    background-color: #f1f1f1;
+    /* Hover background color */
 }
 
 .table-custom thead tr:hover {
     background-color: #fbe9d0;
+}
+
+.custom-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 7vh;
+    border-radius: 24px;
+    background-color: #fff;
+}
+
+textarea {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border: none;
+    resize: none;
+    margin-bottom: 20px;
+}
+
+.title-textarea {
+    font-size: 2em;
+    height: 150px;
+}
+
+.body-textarea {
+    height: 400px;
+}
+
+.custom-card .btn-home {
+    float: right;
+}
+
+.alert {
+    width: 80vw;
+    left: 10vw;
+    margin-bottom: -5vh;
 }

@@ -13,21 +13,24 @@
     <div class="container dashboard">
         {% include "navbar.html" %}
         <div class="container mt-5">
+            {% include "messages.html" %}
             <!-- Update Story Status -->
             <section class="m-5">
                 <h2>Update Story Status</h2>
-                <form>
-                    <div class="mb-3">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3 custom-form">
                         <label for="story-title" class="form-label">Story Title</label>
-                        <select class="form-select" id="story-title">
+                        <select class="form-select" id="story-title" name="story_id">
                             <option selected>Choose a story</option>
-                            <option>Breaking News: City Council Decision</option>
-                            <option>Feature: Local Heroes</option>
+                            {% for story in stories %}
+                            <option name="story_id" value="{{ story.0 }}">{{ story.4 }}</option>
+                            {% endfor %}
                         </select>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 custom-form">
                         <label for="status-update" class="form-label">New Status</label>
-                        <select class="form-select" id="status-update">
+                        <select class="form-select" id="status" name="status">
                             <option selected>Choose status</option>
                             <option>Researching</option>
                             <option>Interviewing</option>
@@ -35,10 +38,10 @@
                             <option>Awaiting Review</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-home">Update Status</button>
+                    <button type="submit" class="btn btn-home" name="status_update">Update Status</button>
                 </form>
             </section>
-            
+
             <!-- View Editorial Feedback -->
             <section class="m-5">
                 <h2>Editorial Feedback</h2>

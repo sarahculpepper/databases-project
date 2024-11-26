@@ -19,20 +19,28 @@
                 <form method="post">
                     {% csrf_token %}
                     <div>
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
+                        <h3>Name</h3>
+                        <input type="name" id="name" name="name" required>
                     </div>
                     <div>
-                        <label for="email">Email:</label>
+                        <h3>Email</h3>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div>
-                        <label for="password">Password:</label>
+                        <h3>Password</h3>
                         <input type="password" id="password" name="password" required>
                     </div>
                     <div>
-                        <label for="confirm_password">Confirm Password:</label>
+                        <h3>Confirm Password</h3>
                         <input type="password" id="confirm_password" name="confirm_password" required>
+                    </div>
+                    <div>
+                        <h3>Select Role</h3>
+                        <select name="role" id="role">
+                            <option value="default">Select a Role</option>
+                            <option value="reporter">Reporter</option>
+                            <option value="editor">Editor</option>
+                        </select>
                     </div>
                     <button type="submit">Register</button>
                 </form>

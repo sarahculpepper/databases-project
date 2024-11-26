@@ -16,9 +16,8 @@ urlpatterns = [
     path('assignments/', views.assignments_view, name='assignments'),
     path('story-status/', views.status_view, name='status'),
     path('submit-story/', views.submit_view, name='submit'),
+    path('dashboard/<int:id>/', views.story_view, name='story'),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-
