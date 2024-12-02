@@ -9,6 +9,8 @@ body {
     font-family: "Outfit", sans-serif;
     height: 100%;
     max-width: 100% !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
     margin: 0;
     padding: 0;
     display: flex;
@@ -121,7 +123,7 @@ label {
 }
 
 .footer {
-    margin-top: auto;
+    position: absolute;
     width: 100vw !important;
     height: 50px;
     line-height: 30px;
@@ -151,6 +153,8 @@ label {
 /* Add some padding to the card's body */
 .card-body {
     justify-content: center;
+    border: 2px #874f41;
+    border-radius: 24px;
     padding: 2rem;
     color: #fbe9d0;
     background-color: #874f41;
@@ -172,7 +176,7 @@ label {
 }
 
 .custom-form {
-    width: 50%;
+    width: 100%;
 }
 
 .table-custom {
@@ -213,10 +217,10 @@ label {
 .custom-card {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    margin-top: 7vh;
+    padding: 15px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 5vh;
     border-radius: 24px;
     background-color: #fff;
 }
@@ -234,11 +238,22 @@ textarea {
 
 .title-textarea {
     font-size: 2em;
-    height: 150px;
+    height: 100px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    margin-bottom: -1vh;
+}
+
+.card-text.text-bold {
+    font-weight: bold;
 }
 
 .body-textarea {
     height: 400px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 0px;
 }
 
 .custom-card .btn-home {
@@ -265,11 +280,25 @@ textarea {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
 
-.alert {
-    width: 80vw;
-    left: 10vw;
-    margin-bottom: -5vh;
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .card.signup-custom {
@@ -296,7 +325,8 @@ textarea {
 }
 
 .signup-style {
-    margin-top: -12%;
+    margin-top: -10%;
+    margin-bottom: -2%;
 }
 
 a {
@@ -304,9 +334,10 @@ a {
     text-decoration: none;
 }
 
-.btn-home.btn-lg {
+.card-body-custom .btn-home.btn-lg {
     background-color: #90aead;
     color: white;
+    margin-top: 10px;
 }
 
 select {
@@ -359,4 +390,198 @@ select {
         background-color: var(--select-arrow);
         clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     }
+}
+
+.btn-home.btn-alt {
+    background-color: #90aead;
+    color: white;
+}
+
+.feedback textarea {
+    border: none;
+    border-color: transparent;
+    box-shadow: none;
+    padding: 20px;
+}
+
+.feedback textarea:focus {
+    border: none;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+textarea.story-body {
+    cursor: default;
+}
+
+.card.feedback {
+    margin-top: 7vh;
+    border-radius: 24px;
+    margin-bottom: 10vh;
+}
+
+.feedback .card-body {
+    border-radius: 24px;
+    color: #fbe9d0;
+    background-color: #874f41;
+    border: none;
+}
+
+.mt-neg-1 {
+    margin-top: -0.9em;
+}
+
+.mt-custom-5 {
+    margin-top: 12vh;
+}
+
+.messages {
+    overflow: hidden !important;
+    position: relative;
+    top: -7vh;
+}
+
+.alert {
+    margin-left: 85%;
+    margin-top: -7.45vh;
+    height: 8%;
+    width: 20%;
+    background-color: #C1F7EE;
+    transform-origin: right;
+    border-radius: 0%;
+    animation: exit 2s ease-out forwards;
+}
+
+.alert.new-message {
+    margin-left: 85%;
+    margin-top: -7.45vh;
+    transform-origin: right;
+    animation: notify 2s ease-in forwards;
+}
+
+@keyframes notify {
+    0% {
+        transform: scaleX(0);
+    }
+
+    25% {
+        transform: scaleX(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes exit {
+    0% {
+        transform: scaleX(1.01);
+    }
+
+    25% {
+        transform: scaleX(0);
+    }
+
+    50% {
+        transform: scale(0);
+    }
+
+    75% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity(0);
+    }
+}
+
+.text {
+    position: absolute;
+    height: 6px;
+    width: 70px;
+    background-color: #94DACD;
+    margin-top: 12.25px;
+    margin-left: 40px;
+}
+
+.dropdown-menu {
+    background-color: transparent;
+    border: none;
+}
+
+.dropdown-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    color: #fbe9d0;
+    background-color: #874f41;
+    padding: 0%;
+    border-radius: 14px;
+    width: 150px;
+}
+
+.dropdown-item:hover {
+    color: #fbe9d0;
+    background-color: #874f41;
+    transform: none;
+    transition: none;
+}
+
+.dropdown-item .btn-home:hover {
+    color: #fbe9d0;
+    background-color: #874f41;
+    transform: none;
+    transition: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+}
+
+.dropdown-item .btn-home {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.editorial {
+    margin-top: 5vh;
+    margin-bottom: -3.5vh;
+    margin-left: 1.2vw;
+    margin-right: 1.2vw;
+}
+
+.editorial .card. {
+    border-radius: 10px;
+    margin-bottom: 10vh;
+    background-color: #874f41;
+
+}
+
+.editorial .card-body {
+    border-radius: 5px;
+    color: #fbe9d0;
+    background-color: #874f41;
+    border: none;
+    height: 16vh;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.editorial .card-text {
+    font-size: 1em;
+    font-weight: normal;
 }

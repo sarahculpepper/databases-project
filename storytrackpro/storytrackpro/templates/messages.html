@@ -1,9 +1,21 @@
 <div name="messages" id="messages">
     {% if messages %}
         {% for message in messages %}
-            <div class="alert {{ message.tags }}">
+            <div class="alert new-message {{ message.tags }}">
                 {{ message }}
             </div>
         {% endfor %}
     {% endif %}
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const messages = document.querySelectorAll(".alert.new-message");
+
+        messages.forEach((message) => {
+            // Remove the 'new-message' class after the animation completes
+            setTimeout(() => {
+                message.classList.remove("new-message");
+            }, 5000); // Match the animation duration
+        });
+    });
+</script>

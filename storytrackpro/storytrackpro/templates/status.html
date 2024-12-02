@@ -9,13 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
-<body>
+<body class="overflow-auto">
     <div class="container dashboard">
         {% include "navbar.html" %}
-        <div class="container mt-5">
-            {% include "messages.html" %}
+        <div class="container mt-3">
             <!-- Update Story Status -->
-            <section class="m-5">
+            <section class="mx-5 mt-custom-5">
+                {% include "messages.html" %}
                 <h2>Update Story Status</h2>
                 <form method="post">
                     {% csrf_token %}
@@ -42,30 +42,60 @@
                 </form>
             </section>
 
-            <!-- View Editorial Feedback -->
+            <!-- Add Editorial Feedback -->
             <section class="m-5">
-                <h2>Editorial Feedback</h2>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Feature: Local Heroes</h5>
-                        <p class="card-text">Feedback: Please clarify the section about the volunteer efforts. Add more sources to support your claims.</p>
+                <h2>Add Editorial Feedback</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3 custom-form">
+                        <label for="story-title" class="form-label">Story Title</label>
+                        <select class="form-select" id="story-title" name="story_id" onchange="showCard()">
+                            <option value="" selected disabled>Choose a story</option>
+                            {% for story in stories %}
+                            <option value="{{ story.0 }}">{{ story.4 }}</option>
+                        </select>
                     </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Breaking News: City Council Decision</h5>
-                        <p class="card-text">Feedback: This is looking great! Please finalize quotes from council members and submit for review by EOD.</p>
+                    <!-- Hidden Card -->
+                    <div id="story-card" class="card feedback mt-4 d-none">
+                        <div class="card-body">
+                            <h5 class="card-title mt-neg-1">Story Body</h5>
+                            <textarea id="story-body" name="storybody" class="form-control story-body" rows="20" readonly>{{story.10}}</textarea>
+                            <h5 class="card-title">Editorial Feedback</h5>
+                            <textarea id="feedback-text" name="feedback" class="form-control" rows="5" placeholder="Add your feedback here..."></textarea>
+                            <button type="submit" class="btn btn-home btn-alt" name="submit_feedback">Submit Feedback</button>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
+                </form>
+                <script>
+                    function showCard() {
+                        const dropdown = document.getElementById("story-title");
+                        const card = document.getElementById("story-card");
+
+                        // Check if a valid story is selected
+                        if (dropdown.value) {
+                            card.classList.remove("d-none"); // Show the card
+                        } else {
+                            card.classList.add("d-none"); // Hide the card if no story is selected
+                        }
+                    }
+                </script>
             </section>
         </div>
-    </div>
-
         <footer class="footer text-center pt-3">
             <p>&copy; 2024 StoryTrack Pro. All Rights Reserved.</p>
         </footer>
-
-
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const selects = document.querySelectorAll("select");
+
+            // Reset each select to its default state
+            selects.forEach(select => {
+                select.selectedIndex = 0;
+            });
+        });
+    </script>
 </body>
 </html>

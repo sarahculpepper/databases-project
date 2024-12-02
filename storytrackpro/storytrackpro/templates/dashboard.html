@@ -51,10 +51,10 @@
             </section>
 
             <!-- Section: Request Editorial Review & Assign Stories to Reporters -->
-            <section class="m-5">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-6 mx-auto">
-                        <h2>Request Editorial Review</h2>
+            <section class="align-items-center">
+                <div class="row justify-content-center">
+                    <div class="col m-5">
+                        <h2 class="text-center">Request Editorial Review</h2>
                         <form method="post">
                             {% csrf_token %}
                             <div class="mb-3 custom-form">
@@ -75,11 +75,13 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-home" name="request_review">Request Review</button>
+                            <div class="d-flex justify-content-center mt-auto">
+                                <button type="submit" class="btn btn-home w-25" name="request_review">Request Review</button>
+                            </div>
                         </form>
                     </div>
-                    <div class="col-md-6 mx-auto">
-                        <h2>Assign Stories to Reporters</h2>
+                    <div class="col m-5">
+                        <h2 class="text-center">Assign Stories to Reporters</h2>
                         <form method="post">
                             {% csrf_token %}
                             <div class="mb-3 custom-form">
@@ -100,7 +102,9 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-home" name="assign_reporter">Assign Story</button>
+                            <div class="d-flex justify-content-center mt-auto">
+                                <button type="submit" class="btn btn-home w-25" name="assign_reporter">Assign Story</button>
+                            </div>
                         </form>
                     </div>
                 </div>

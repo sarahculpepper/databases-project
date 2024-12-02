@@ -95,16 +95,28 @@ def status_view(request):
     query = "SELECT * FROM STORY;"
     stories = execute_query(query)
     if request.method == "POST":
-        story_id = request.POST.get("story_id")
-        status = request.POST.get("status")
-        query = """
-            UPDATE STORY
-            SET Status = %s
-            WHERE StoryID = %s;
-        """
-        execute_query(query, [status ,story_id])
-        messages.success(request, "Story Sucessfully Updated.")
-        return redirect("status")
+        if "status_update" in request.POST:
+            story_id = request.POST.get("story_id")
+            status = request.POST.get("status")
+            query = """
+                UPDATE STORY
+                SET Status = %s
+                WHERE StoryID = %s;
+            """
+            execute_query(query, [status ,story_id])
+            messages.success(request, "Story Sucessfully Updated")
+            return redirect("status")
+        if "submit_feedback" in request.POST:
+            story_id = request.POST.get("story_id")
+            feedback = request.POST.get("feedback")
+            query = """
+                UPDATE STORY
+                SET Feedback = %s
+                WHERE StoryID = %s;
+            """
+            execute_query(query, [feedback ,story_id])
+            messages.success(request, "Feedback Submitted")
+            return redirect("status")
     return render(request, template_name, {'stories': stories})
 
 @login_required
