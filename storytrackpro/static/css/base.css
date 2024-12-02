@@ -271,3 +271,92 @@ textarea {
     left: 10vw;
     margin-bottom: -5vh;
 }
+
+.card.signup-custom {
+    border-radius: 1rem;
+    margin-top: 5%;
+    background-color: #874f41;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.signup-custom .card-body-custom {
+    justify-content: center;
+    padding: 2rem;
+    color: #fbe9d0;
+}
+
+.form-outline input {
+    width: 75%;
+    height: 40px;
+    padding: 20px;
+    border-radius: 1.5rem;
+    border: none;
+    color: #819c9b;
+}
+
+.signup-style {
+    margin-top: -12%;
+}
+
+a {
+    color: #fbe9d0;
+    text-decoration: none;
+}
+
+.btn-home.btn-lg {
+    background-color: #90aead;
+    color: white;
+}
+
+select {
+    // A reset of styles, including removing the default dropdown arrow
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+
+    z-index: 1;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    outline: none;
+}
+
+.select {
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    position: relative;
+    width: 75%;
+    height: 40px;
+    margin-left: 4.5vw;
+    border-radius: 1.5rem;
+    border: none;
+    color: #819c9b;
+
+    select,
+    &::after {
+        grid-area: select;
+    }
+
+    padding: 0.25em 20px;
+
+    cursor: pointer;
+
+    background-color: #fff;
+
+    // Custom arrow
+    &:not(.select--multiple)::after {
+        content: "";
+        justify-self: end;
+        width: 0.8em;
+        height: 0.5em;
+        background-color: var(--select-arrow);
+        clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    }
+}
