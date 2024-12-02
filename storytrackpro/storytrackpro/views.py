@@ -144,14 +144,23 @@ def story_view(request, id):
     query = "SELECT * FROM STORY WHERE StoryID = %s;"
     stories = execute_query(query, [id])
     if request.method == "POST":
-        title = request.POST.get("title")
-        story_body = request.POST.get("storybody")
-        query = """
-            UPDATE STORY
-            SET Headline = %s, StoryBody = %s
+        if "update_story" in request.POST:
+            title = request.POST.get("title")
+            story_body = request.POST.get("storybody")
+            query = """
+                UPDATE STORY
+                SET Headline = %s, StoryBody = %s
+                WHERE StoryID = %s;
+            """
+            execute_query(query, [title, story_body, id])
+            messages.success(request, "Story Sucessfully Updated.")
+            return redirect(reverse('story', kwargs={'id': id}))
+        if "delete_story" in request.POST:
+            query = """
+            DELETE FROM STORY
             WHERE StoryID = %s;
-        """
-        execute_query(query, [title, story_body, id])
-        messages.success(request, "Story Sucessfully Updated.")
-        return redirect(reverse('story', kwargs={'id': id}))
+            """
+            execute_query(query, [id])
+            messages.success(request, "Story Sucessfully Deleted.")
+            return redirect("dashboard")
     return render(request, template_name, {'stories': stories})

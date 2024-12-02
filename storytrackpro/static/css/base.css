@@ -245,6 +245,27 @@ textarea {
     float: right;
 }
 
+.delete-button {
+    float: left;
+    width: 200px;
+    color: #fbe9d0;
+    background-color: #874f41;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.delete-button:hover {
+    color: #fbe9d0;
+    background-color: #AC6553;
+    transform: translateY(-4px);
+    /* Lifts the card slightly on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
 .alert {
     width: 80vw;
     left: 10vw;
